@@ -113,7 +113,7 @@ pandoc input.md -t pdf \
 
 ### 4.2 图片
 
-![示例图片](example/test_image.svg "这是图片标题")
+![示例图片](examples/test_image.svg "这是图片标题")
 
 ## 五、表格功能
 
