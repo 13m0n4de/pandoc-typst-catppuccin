@@ -92,7 +92,7 @@
   show heading.where(level: 1): it => {
     if counter(page).get().first() > 1 { pagebreak(weak: true) }
     set text(size: 1.8em, weight: "bold")
-    set block(above: 2.2em, below: 2.2em, sticky: true)
+    set block(above: 1.8em, below: 1.8em, sticky: true)
     it
   }
 
@@ -104,25 +104,25 @@
 
   show heading.where(level: 3): it => {
     set text(size: 1.2em, weight: "semibold")
-    set block(above: 1.5em, below: 1.5em)
+    set block(above: 1.8em, below: 1.8em, sticky: true)
     it
   }
 
   show heading.where(level: 4): it => {
     set text(size: 1.1em, weight: "medium")
-    set block(above: 1.2em, below: 1.2em)
+    set block(above: 1.8em, below: 1.8em, sticky: true)
     it
   }
 
   show heading.where(level: 5): it => {
     set text(size: 1.05em, weight: "medium")
-    set block(above: 1em, below: 1em)
+    set block(above: 1.8em, below: 1.8em, sticky: true)
     it
   }
 
   show heading.where(level: 6): it => {
     set text(size: 1em, weight: "regular", style: "italic")
-    set block(above: 1em, below: 1em)
+    set block(above: 1.8em, below: 1.8em, sticky: true)
     it
   }
 
@@ -160,6 +160,12 @@
   show link: it => {
     set text(fill: current-flavor.colors.blue.rgb)
     underline(it, stroke: 0.8pt + current-flavor.colors.blue.rgb)
+  }
+
+  // 引用
+  show ref: it => {
+    set text(fill: current-flavor.colors.teal.rgb)
+    it
   }
 
   // 引用块和 Callout
@@ -237,7 +243,7 @@
 
   // 图片和图表
   show figure: it => {
-    set block(above: 1.4em, below: 1.4em)
+    set block(above: 1.4em, below: 1.4em, breakable: false)
     it
   }
 
