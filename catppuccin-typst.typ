@@ -51,6 +51,7 @@
     margin: margin,
     numbering: pagenumbering,
     columns: cols,
+    number-align: right,
   )
 
   show: catppuccin.with(current-flavor)
