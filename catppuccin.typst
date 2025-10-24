@@ -1,6 +1,33 @@
-// 用于 Pandoc 转换 PDF 的 Typst 模板，采用 Catppuccin 主题
-// 使用方法：pandoc input.md -t pdf -o output.pdf --pdf-engine=typst -V template=catppuccin-typst.typ
+#let horizontalrule = line(start: (25%,0%), end: (75%,0%))
 
+#show terms: it => {
+  it.children
+    .map(child => [
+      #strong[#child.term]
+      #block(inset: (left: 1.5em, top: -0.4em))[#child.description]
+      ])
+    .join()
+}
+
+#set table(
+  inset: 6pt,
+  stroke: none
+)
+
+#show figure.where(
+  kind: table
+): set figure.caption(position: $if(table-caption-position)$$table-caption-position$$else$top$endif$)
+
+#show figure.where(
+  kind: image
+): set figure.caption(position: $if(figure-caption-position)$$figure-caption-position$$else$bottom$endif$)
+
+$if(highlighting-definitions)$
+// syntax highlighting functions from skylighting:
+$highlighting-definitions$
+
+$endif$
+// Catppuccin Typst template
 #import "@preview/catppuccin:1.0.0": catppuccin, flavors, get-flavor
 
 #let content-to-string(content) = {
@@ -15,21 +42,19 @@
   }
 }
 
+
 #let conf(
   title: none,
-  subtitle: none,
   authors: (),
   keywords: (),
-  date: none,
   lang: "zh",
   region: "CN",
   paper: "a4",
   margin: (top: 1.5cm, bottom: 1.5cm, left: 1.5cm, right: 1.5cm),
   cols: 1,
-  mainfont: "LXGW Bright",
-  monofont: "Hack Nerd Font",
+  font: ("LXGW Bright",),
   fontsize: 11pt,
-  sectionnumbering: none,
+  codefont: ("Hack Nerd Font",),
   pagenumbering: "1",
   flavor: "macchiato",
   doc,
@@ -59,7 +84,7 @@
   set text(
     lang: lang,
     region: region,
-    font: mainfont,
+    font: font,
     size: fontsize,
     weight: "regular",
   )
@@ -129,7 +154,7 @@
 
   // 代码块
   show raw.where(block: true): it => {
-    set text(font: monofont, size: 0.9em)
+    set text(font: codefont, size: 0.9em)
     set block(
       fill: if current-flavor.identifier == "latte" { current-flavor.colors.mantle.rgb } else {
         current-flavor.colors.surface0.rgb
@@ -146,7 +171,7 @@
 
   // 内联代码
   show raw.where(block: false): it => {
-    set text(font: monofont, size: 0.9em, fill: current-flavor.colors.peach.rgb)
+    set text(font: codefont, size: 0.9em, fill: current-flavor.colors.peach.rgb)
     box(
       fill: if current-flavor.identifier == "latte" { current-flavor.colors.crust.rgb } else {
         current-flavor.colors.surface1.rgb
@@ -284,3 +309,97 @@
     Generated with Pandoc and Typst using Catppuccin #current-flavor.name theme
   ]
 }
+
+$if(smart)$
+$else$
+#set smartquote(enabled: false)
+
+$endif$
+$for(header-includes)$
+$header-includes$
+
+$endfor$
+#show: doc => conf(
+$if(title)$
+  title: [$title$],
+$endif$
+$if(author)$
+  authors: (
+$for(author)$
+$if(author.name)$
+    ( name: [$author.name$],
+      affiliation: [$author.affiliation$],
+      email: [$author.email$] ),
+$else$
+    ( name: [$author$],
+      affiliation: "",
+      email: "" ),
+$endif$
+$endfor$
+    ),
+$endif$
+$if(keywords)$
+  keywords: ($for(keywords)$$keyword$$sep$,$endfor$),
+$endif$
+$if(lang)$
+  lang: "$lang$",
+$endif$
+$if(region)$
+  region: "$region$",
+$endif$
+$if(papersize)$
+  paper: "$papersize$",
+$endif$
+$if(margin)$
+  margin: ($for(margin/pairs)$$margin.key$: $margin.value$,$endfor$),
+$endif$
+  cols: $if(columns)$$columns$$else$1$endif$,
+$if(mainfont)$
+  font: ("$mainfont$",),
+$endif$
+$if(fontsize)$
+  fontsize: $fontsize$,
+$endif$
+$if(codefont)$
+  codefont: ($for(codefont)$"$codefont$",$endfor$),
+$endif$
+  pagenumbering: $if(page-numbering)$"$page-numbering$"$else$none$endif$,
+$if(flavor)$
+  flavor: [$flavor$],
+$endif$
+  doc,
+)
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+#outline(
+  title: auto,
+  depth: $toc-depth$
+);
+$endif$
+
+$body$
+
+$if(citations)$
+$for(nocite-ids)$
+#cite(label("${it}"), form: none)
+$endfor$
+$if(csl)$
+
+#set bibliography(style: "$csl$")
+$elseif(bibliographystyle)$
+
+#set bibliography(style: "$bibliographystyle$")
+$endif$
+$if(bibliography)$
+
+#bibliography($for(bibliography)$"$bibliography$"$sep$,$endfor$$if(full-bibliography)$, full: true$endif$)
+$endif$
+$endif$
+$for(include-after)$
+
+$include-after$
+$endfor$
