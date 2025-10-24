@@ -66,9 +66,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 1. 第三步：编写文档
 
-1. 最后一步：生成 PDF：
+1. 最后一步：生成 PDF
 
-    运行 `pandoc input.md -t pdf -o output.pdf --pdf-engine=typst -V template=catppuccin-typst.typ`
+    **使用方式一：使用默认配置文件**
+
+    ```bash
+    pandoc input.md -o output.pdf -d catppuccin
+    ```
+
+    **使用方式二：命令行指定配置**
+
+    ```bash
+    pandoc input.md -o output.pdf \
+        --template=catppuccin.typst \
+        --pdf-engine=typst \
+        -V flavor=macchiato \
+        -V mainfont="LXGW Bright" \
+        -V codefont="Hack Nerd Font"
+    ```
 
 ### 2.3 任务列表
 
@@ -89,14 +104,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ### 3.2 代码块
 
 ```bash
-# 基本的 Pandoc 转换命令
-pandoc input.md -o output.pdf
+# 使用方式一：使用默认配置文件
+pandoc input.md -o output.pdf -d catppuccin
 
-# 使用 Typst 引擎和自定义模板
-pandoc input.md -t pdf \
+# 使用方式二：命令行指定配置
+pandoc input.md -o output.pdf \
+    --template=catppuccin.typst \
     --pdf-engine=typst \
-    -V template=catppuccin-typst.typ \
-    -o output.pdf
+    -V flavor=macchiato \
+    -V mainfont="LXGW Bright" \
+    -V codefont="Hack Nerd Font"
 ```
 
 ## 四、链接和图片
@@ -113,7 +130,7 @@ pandoc input.md -t pdf \
 
 ### 4.2 图片
 
-![示例图片](examples/test_image.svg "这是图片标题")
+![示例图片](test_image.png "这是图片标题")
 
 ## 五、表格功能
 
@@ -211,20 +228,20 @@ $$
 ### 8.1 定义列表
 
 Pandoc
-: 通用文档转换工具
-: 支持多种输入和输出格式
+:   通用文档转换工具
+:   支持多种输入和输出格式
 
 Typst
-: 现代排版系统
-: 专注于科学和技术文档
+:   现代排版系统
+:   专注于科学和技术文档
 
 Markdown
-: 轻量级标记语言
-: 易于阅读和编写
+:   轻量级标记语言
+:   易于阅读和编写
 
 模板 Template
-: 预定义的文档样式
-: 用于统一文档外观
+:   预定义的文档样式
+:   用于统一文档外观
 
 ## 九、高级功能测试
 
@@ -262,16 +279,6 @@ Markdown
 
     - [ ] 校对和优化
 
-## 十、总结
+---
 
-本测试文档涵盖了以下 Markdown 功能：
-
-- ✅ **基础语法**：标题、段落、强调、列表
-- ✅ **代码功能**：内联代码、代码块、语法高亮
-- ✅ **链接图片**：各种链接形式、图片显示
-- ✅ **表格功能**：基础表格、对齐、复杂表格
-- ✅ **引用块**：普通引用、Callouts
-- ✅ **数学公式**：内联公式、块级公式
-- ✅ **高级功能**：脚注、定义列表、任务列表
-- ✅ **中文支持**：中文字体、标点、排版
-- ✅ **混合排版**：中英文混排、特殊字符
+*本文档由 Claude Sonnet 4.5 生成*
