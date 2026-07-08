@@ -186,7 +186,7 @@ $endif$
   // 链接
   show link: it => {
     set text(fill: current-flavor.colors.blue.rgb)
-    underline(it, stroke: 0.8pt + current-flavor.colors.blue.rgb)
+    underline(it, stroke: 0.8pt + current-flavor.colors.blue.rgb, offset: 0.3em)
   }
 
   // 引用
