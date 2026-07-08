@@ -2,13 +2,24 @@
 
 使用 [Pandoc](https://pandoc.org/) + [Typst](https://typst.app/) 将 Markdown 转换为 PDF 的预配置方案，采用 [Catppuccin](https://github.com/catppuccin/catppuccin) 配色主题，中文友好。
 
-**特性**：
-
 - 开箱即用的 Pandoc 模板和配置文件
-- 基于 Catppuccin 配色的美观样式（支持 4 种风味）
+- 基于 Catppuccin 配色（支持 4 种风味）
 - 支持代码高亮、表格、数学公式等
 
-预览效果：[test.pdf](./examples/test.pdf)
+<table>
+    <tr>
+    <td align="center">Latte</td>
+    <td align="center">Frappe</td>
+    <td align="center">Macchiato</td>
+    <td align="center">Mocha</td>
+  </tr>
+  <tr>
+    <td><a href="examples/latte.pdf"><img src="examples/latte.png" /></a></td>
+    <td><a href="examples/frappe.pdf"><img src="examples/frappe.png" /></a></td>
+    <td><a href="examples/macchiato.pdf"><img src="examples/macchiato.png" /></a></td>
+    <td><a href="examples/mocha.pdf"><img src="examples/mocha.png" /></a></td>
+  </tr>
+</table>
 
 ## 使用
 
@@ -16,8 +27,14 @@
 
 ```bash
 mkdir -p ~/.local/share/pandoc/{templates,defaults}/
-cp catppuccin.typst ~/.local/share/pandoc/templates/
+cp catppuccin.typ ~/.local/share/pandoc/templates/
 cp catppuccin.yaml ~/.local/share/pandoc/defaults/
+```
+
+如果您安装了 [Just](https://github.com/casey/just)，也可以使用 `just install` 自动执行安装命令：
+
+```bash
+just install
 ```
 
 **使用方式一：使用默认配置文件**
@@ -32,7 +49,7 @@ pandoc input.md -o output.pdf -d catppuccin
 
 ```bash
 pandoc input.md -o output.pdf \
-    --template=catppuccin.typst \
+    --template=catppuccin.typ \
     --pdf-engine=typst \
     -V flavor=macchiato \
     -V mainfont="LXGW Bright" \
