@@ -14,10 +14,10 @@
     <td align="center" width="25%">Mocha</td>
   </tr>
   <tr>
-    <td><a href="./examples/latte.pdf"><img src="./examples/latte.png" width="100%" /></a></td>
-    <td><a href="./examples/frappe.pdf"><img src="./examples/frappe.png" width="100%" /></a></td>
-    <td><a href="./examples/macchiato.pdf"><img src="./examples/macchiato.png" width="100%" /></a></td>
-    <td><a href="./examples/mocha.pdf"><img src="./examples/mocha.png" width="100%" /></a></td>
+    <td><a href="./src/branch/main/examples/latte.pdf"><img src="./examples/latte.png" width="100%" /></a></td>
+    <td><a href="./src/branch/main/examples/frappe.pdf"><img src="./examples/frappe.png" width="100%" /></a></td>
+    <td><a href="./src/branch/main/examples/macchiato.pdf"><img src="./examples/macchiato.png" width="100%" /></a></td>
+    <td><a href="./src/branch/main/examples/mocha.pdf"><img src="./examples/mocha.png" width="100%" /></a></td>
   </tr>
 </table>
 
@@ -43,7 +43,7 @@ just install
 pandoc input.md -o output.pdf -d catppuccin
 ```
 
-（注意：使用默认配置文件时，不能用 `-V` 覆盖变量内容，详情见 [Pandoc User’s Guide](https://pandoc.org/MANUAL.html#defaults-files)）
+（注意：使用默认配置文件时，不能用 `-V` 覆盖变量内容，详情见 [Pandoc User's Guide](https://pandoc.org/MANUAL.html#defaults-files)）
 
 **使用方式二：命令行指定配置**
 
