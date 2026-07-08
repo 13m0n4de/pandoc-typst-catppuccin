@@ -2,7 +2,7 @@ from: markdown
 to: pdf
 pdf-engine: typst
 
-template: catppuccin.typst
+template: catppuccin.typ
 
 variables:
   # latte, frappe, macchiato, mocha

@@ -91,7 +91,7 @@ $endif$
 
   // 段落
   set par(
-    spacing: 1.4em,
+    spacing: 1.2em,
     leading: 0.9em,
     justify: true,
     first-line-indent: 0em,
@@ -99,13 +99,11 @@ $endif$
 
   // 分割线
   show line: it => {
-    v(1em)
     block(
       width: 100%,
-      height: 1.5pt,
+      height: 1pt,
       fill: current-flavor.colors.overlay1.rgb,
     )
-    v(1em)
   }
 
   // 标题
@@ -154,13 +152,14 @@ $endif$
 
   // 代码块
   show raw.where(block: true): it => {
-    set text(font: codefont, size: 0.9em)
+    set text(font: codefont)
     set block(
-      fill: if current-flavor.identifier == "latte" { current-flavor.colors.mantle.rgb } else {
+      fill: if current-flavor.identifier == "latte" {
+        current-flavor.colors.mantle.rgb
+      } else {
         current-flavor.colors.surface0.rgb
       },
-      stroke: 1pt + current-flavor.colors.surface2.rgb,
-      radius: 6pt,
+      radius: 2pt,
       inset: 1em,
       width: 100%,
       above: 1.2em,
@@ -171,13 +170,15 @@ $endif$
 
   // 内联代码
   show raw.where(block: false): it => {
-    set text(font: codefont, size: 0.9em, fill: current-flavor.colors.peach.rgb)
+    set text(font: codefont, fill: current-flavor.colors.peach.rgb)
     box(
-      fill: if current-flavor.identifier == "latte" { current-flavor.colors.crust.rgb } else {
+      fill: if current-flavor.identifier == "latte" {
+        current-flavor.colors.crust.rgb
+      } else {
         current-flavor.colors.surface1.rgb
       },
-      inset: (x: 0.5em, y: 0.2em),
-      radius: 3pt,
+      inset: (x: 0.5em, y: 0.4em),
+      radius: 2pt,
       it,
     )
   }
@@ -198,7 +199,9 @@ $endif$
   show quote.where(block: true): it => {
     let content-str = repr(it.body)
     let callout-match = content-str.match(
-      regex("(?i)\[!(NOTE|INFO|TIP|SUCCESS|WARNING|CAUTION|IMPORTANT|DANGER)(\|[^\]]*)?"),
+      regex(
+        "(?i)\[!(NOTE|INFO|TIP|SUCCESS|WARNING|CAUTION|IMPORTANT|DANGER)(\|[^\]]*)?",
+      ),
     )
 
     let border-color = if callout-match != none {
@@ -220,7 +223,9 @@ $endif$
 
     set text(fill: current-flavor.colors.subtext0.rgb)
     block(
-      fill: if current-flavor.identifier == "latte" { current-flavor.colors.crust.rgb } else {
+      fill: if current-flavor.identifier == "latte" {
+        current-flavor.colors.crust.rgb
+      } else {
         current-flavor.colors.surface1.rgb
       },
       inset: (left: 1em, right: 1em, top: 0.8em, bottom: 0.8em),
@@ -235,7 +240,10 @@ $endif$
 
   // 强调和加粗
   show emph: set text(fill: current-flavor.colors.green.rgb)
-  show strong: set text(fill: current-flavor.colors.sapphire.rgb, weight: "medium")
+  show strong: set text(
+    fill: current-flavor.colors.sapphire.rgb,
+    weight: "medium",
+  )
 
   // 列表
   set list(
@@ -252,15 +260,18 @@ $endif$
   )
 
   // 表格
-  show table: set text(size: 0.9em)
   set table(
     stroke: 0.8pt + current-flavor.colors.surface2.rgb,
     fill: (x, y) => if calc.odd(y) {
-      if current-flavor.identifier == "latte" { current-flavor.colors.mantle.rgb } else {
+      if current-flavor.identifier == "latte" {
+        current-flavor.colors.mantle.rgb
+      } else {
         current-flavor.colors.surface0.rgb
       }
     } else {
-      if current-flavor.identifier == "latte" { current-flavor.colors.crust.rgb } else {
+      if current-flavor.identifier == "latte" {
+        current-flavor.colors.crust.rgb
+      } else {
         current-flavor.colors.surface1.rgb
       }
     },
@@ -269,46 +280,38 @@ $endif$
 
   // 图片和图表
   show figure: it => {
-    set block(above: 1.4em, below: 1.4em, breakable: false)
+    set block(above: 1.2em, below: 1.2em, breakable: false)
     it
   }
 
   show figure.caption: it => {
-    set text(size: 0.9em, fill: current-flavor.colors.subtext1.rgb, style: "italic")
+    set text(
+      size: 0.9em,
+      fill: current-flavor.colors.subtext1.rgb,
+      style: "italic",
+    )
     v(0.5em)
     it
   }
 
   // 脚注
+  set footnote.entry(
+    separator: {
+      block(width: 100%, height: 0.5pt, fill: current-flavor.colors.overlay1.rgb)
+      v(0.5em)
+    },
+    gap: 0.5em,
+  )
+
   show footnote.entry: it => {
     set text(size: 0.9em, fill: current-flavor.colors.subtext0.rgb)
     set par(hanging-indent: 1em)
     it
   }
 
-  // 数学公式
-  show math.equation.where(block: true): it => {
-    set block(
-      inset: 1em,
-      fill: if current-flavor.identifier == "latte" { current-flavor.colors.mantle.rgb } else {
-        current-flavor.colors.surface0.rgb
-      },
-      radius: 6pt,
-      above: 1.2em,
-      below: 1.2em,
-    )
-    it
-  }
-
   doc
-
-  // 页脚
-  v(2em)
-  align(center)[
-    #set text(size: 0.8em, fill: current-flavor.colors.overlay0.rgb, style: "italic")
-    Generated with Pandoc and Typst using Catppuccin #current-flavor.name theme
-  ]
 }
+
 
 $if(smart)$
 $else$
