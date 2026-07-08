@@ -6,6 +6,8 @@
 - 基于 Catppuccin 配色（支持 4 种风味）
 - 支持代码高亮、表格、数学公式等
 
+预览 PDF：[latte.pdf](./examples/latte.pdf)、[frappe.pdf](./examples/frappe.pdf)、[macchiato.pdf](./examples/macchiato.pdf)、[mocha.pdf](./examples/mocha.pdf)
+
 <table>
   <tr>
     <td align="center" width="25%">Latte</td>
@@ -14,10 +16,10 @@
     <td align="center" width="25%">Mocha</td>
   </tr>
   <tr>
-    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/latte.pdf"><img src="./examples/latte.png" width="100%" /></a></td>
-    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/frappe.pdf"><img src="./examples/frappe.png" width="100%" /></a></td>
-    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/macchiato.pdf"><img src="./examples/macchiato.png" width="100%" /></a></td>
-    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/mocha.pdf"><img src="./examples/mocha.png" width="100%" /></a></td>
+    <td><img src="./examples/latte.png" width="100%" /></td>
+    <td><img src="./examples/frappe.png" width="100%" /></td>
+    <td><img src="./examples/macchiato.png" width="100%" /></td>
+    <td><img src="./examples/mocha.png" width="100%" /></td>
   </tr>
 </table>
 
