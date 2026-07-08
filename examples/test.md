@@ -26,7 +26,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 支持中英文混排：**文档转换 Document Conversion**，*排版系统 Typesetting System*，以及 ***模板设计 Template Design***。
 
-还支持 ~~删除线文本~~，表示已经过时或需要修正的内容。
+还支持~~删除线文本~~，表示已经过时或需要修正的内容。
 
 ### 1.3 段落和换行
 
@@ -116,21 +116,25 @@ pandoc input.md -o output.pdf \
     -V codefont="Hack Nerd Font"
 ```
 
+```{=typst}
+#pagebreak()
+```
+
 ## 四、链接和图片
 
 ### 4.1 各种链接形式
 
-这是一个 [内联链接](https://typst.app/) 到 Typst 官方网站。
+这是一个[内联链接](https://typst.app/)到 Typst 官方网站。
 
-这是一个 [带说明文字的链接](https://pandoc.org "Pandoc 文档转换工具") 到 Pandoc。
+这是一个[带说明文字的链接](https://pandoc.org "Pandoc 文档转换工具")到 Pandoc。
 
 自动链接测试：https://catppuccin.com 和 contact@example.com
 
-中文混合链接：访问 [Catppuccin 主题官网](https://catppuccin.com) 了解更多配色方案信息。
+中文混合链接：访问 [Catppuccin 主题官网](https://catppuccin.com)了解更多配色方案信息。
 
 ### 4.2 图片
 
-![示例图片](test_image.png "这是图片标题")
+![示例图片](./hatsune_miku_color.png "这是图片标题")
 
 ## 五、表格功能
 
@@ -181,19 +185,19 @@ pandoc input.md -o output.pdf \
 
 > [!TIP] 排版技巧
 >
-> 💡 这是一个技巧提示框，用于分享有用的建议。
+> 这是一个技巧提示框，用于分享有用的建议。
 
 > [!IMPORTANT] 重要提醒
 >
-> ⚠️ 这是重要信息提示框，用于强调关键配置。
+> 这是重要信息提示框，用于强调关键配置。
 
 > [!WARNING] 注意事项
 >
-> 🚨 这是警告信息框，用于提醒潜在的问题。
+> 这是警告信息框，用于提醒潜在的问题。
 
 > [!DANGER] 常见错误
 >
-> ☢️ 这是危险警告框，用于标识容易出错的操作。
+> 这是危险警告框，用于标识容易出错的操作。
 
 > [!INFO|aside-l] 测试 `[!TYPE|additional]` 语法的支持。
 >
@@ -213,19 +217,31 @@ pandoc input.md -o output.pdf \
 
 $$
 hash(key) = \begin{cases}
-key \bmod M & \text{除法哈希} \\
-\lfloor \frac{M}{W} \times (a \times key \bmod W) \rfloor & \text{乘法哈希} \\
-(h_1(key) + i \times h_2(key)) \bmod M & \text{双重哈希}
+key \bmod M & \\
+\lfloor \frac{M}{W} \times (a \times key \bmod W) \rfloor & \\
+(h_1(key) + i \times h_2(key)) \bmod M &
 \end{cases}
 $$
 
-## 八、分割线和特殊元素
+## 八、脚注
+
+这是一个简单的脚注示例[^1]。
+
+脚注可以包含较长的说明文字[^long]，也可以在同一段落中使用多个脚注[^2]。
+
+```{=typst}
+#pagebreak()
+```
+
+## 九、分割线和特殊元素
+
+这是一条分割线：
 
 ---
 
-这是一条分割线，用于分隔不同的内容段落。
+用于分隔不同的内容段落。
 
-### 8.1 定义列表
+### 9.1 定义列表
 
 Pandoc
 :   通用文档转换工具
@@ -243,9 +259,9 @@ Markdown
 :   预定义的文档样式
 :   用于统一文档外观
 
-## 九、高级功能测试
+## 十、高级功能测试
 
-### 9.1 嵌套结构
+### 10.1 嵌套结构
 
 1. **第一层：文档准备**
 
@@ -282,3 +298,9 @@ Markdown
 ---
 
 *本文档由 Claude Sonnet 4.5 生成*
+
+[^1]: 这是一个简短的脚注内容。
+
+[^long]: 这是一个较长的脚注，可以包含多行内容、**格式化文本**，甚至 `内联代码`，用于提供详细的背景信息或参考资料。
+
+[^2]: 第二个脚注，通常用于补充说明或引用来源。
