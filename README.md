@@ -7,17 +7,17 @@
 - 支持代码高亮、表格、数学公式等
 
 <table>
-    <tr>
-    <td align="center">Latte</td>
-    <td align="center">Frappe</td>
-    <td align="center">Macchiato</td>
-    <td align="center">Mocha</td>
+  <tr>
+    <td align="center" width="25%">Latte</td>
+    <td align="center" width="25%">Frappe</td>
+    <td align="center" width="25%">Macchiato</td>
+    <td align="center" width="25%">Mocha</td>
   </tr>
   <tr>
-    <td><a href="examples/latte.pdf"><img src="examples/latte.png" /></a></td>
-    <td><a href="examples/frappe.pdf"><img src="examples/frappe.png" /></a></td>
-    <td><a href="examples/macchiato.pdf"><img src="examples/macchiato.png" /></a></td>
-    <td><a href="examples/mocha.pdf"><img src="examples/mocha.png" /></a></td>
+    <td><a href="./examples/latte.pdf"><img src="./examples/latte.png" width="100%" /></a></td>
+    <td><a href="./examples/frappe.pdf"><img src="./examples/frappe.png" width="100%" /></a></td>
+    <td><a href="./examples/macchiato.pdf"><img src="./examples/macchiato.png" width="100%" /></a></td>
+    <td><a href="./examples/mocha.pdf"><img src="./examples/mocha.png" width="100%" /></a></td>
   </tr>
 </table>
 
