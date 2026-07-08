@@ -14,10 +14,10 @@
     <td align="center" width="25%">Mocha</td>
   </tr>
   <tr>
-    <td><a href="./src/branch/main/examples/latte.pdf"><img src="./examples/latte.png" width="100%" /></a></td>
-    <td><a href="./src/branch/main/examples/frappe.pdf"><img src="./examples/frappe.png" width="100%" /></a></td>
-    <td><a href="./src/branch/main/examples/macchiato.pdf"><img src="./examples/macchiato.png" width="100%" /></a></td>
-    <td><a href="./src/branch/main/examples/mocha.pdf"><img src="./examples/mocha.png" width="100%" /></a></td>
+    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/latte.pdf"><img src="./examples/latte.png" width="100%" /></a></td>
+    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/frappe.pdf"><img src="./examples/frappe.png" width="100%" /></a></td>
+    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/macchiato.pdf"><img src="./examples/macchiato.png" width="100%" /></a></td>
+    <td><a href="./pandoc-typst-catppuccin/src/branch/main/examples/mocha.pdf"><img src="./examples/mocha.png" width="100%" /></a></td>
   </tr>
 </table>
 
